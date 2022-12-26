@@ -2,33 +2,33 @@
    <head>
       <style>
          body {
-            font-family: sans-serif;
+            font-family: 'Pretendard', sans-serif;
          }
 
          input[type="text"], input[type="url"] {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
             margin-bottom: 8px;
             width: 100%;
-            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
          }
 
          input[type="button"] {
             background-color: #4CAF50;
             color: white;
-            padding: 8px 16px;
+            padding: 10px 15px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
          }
 
          #display {
-            border: 1px solid #ccc;
-            padding: 16px;
+            border: 2px solid #ccc;
+            padding: 18px;
             margin-bottom: 16px;
-            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
          }
       </style>
       <script>
@@ -61,21 +61,20 @@ Gluon.open('${url1}', {
 .socialLinks-3ywLUf + .info-3pQQBb {
   position: relative;
 }
-
 .socialLinks-3ywLUf + .info-3pQQBb::after {
   content: '${newname} 0.1.1 \\a Gluon \${Gluon.versions.gluon} \${Gluon.versions.builder !== 'nothing' ? \`(\${Gluon.versions.builder})\` : ''} \\a \${Gluon.versions.browserType[0].toUpperCase() + Gluon.versions.browserType.slice(1)} \${Gluon.versions.browser} (\${Gluon.versions.product}) \\a Node \${Gluon.versions.node}';
   white-space: pre-wrap;
   text-transform: none;
   color: var(--text-muted);
   font-weight: 400;
-  font-family: var(--font-primary);
-  font-size: 12px;
-  line-height: 16px;
+  font-family: 'Pretendar', sans-serif;
+  font-size: 14px;
+  line-height: 18px;
   width: 100%;
-  padding: 8px 0;
-  margin: 8px 0;
+  padding: 12px 0;
+  margin: 12px 0;
   display: inline-block;
-  border-top: 1px solid var(--background-modifier-accent);
+  border-top: 2px solid var(--background-modifier-accent);
 }\`;
     }, 200);
   }
@@ -85,7 +84,8 @@ Gluon.open('${url1}', {
       </script>
    </head>
    <body>
-      <h2>Chatbox</h2>
+      <h1 style="font-size: 2em;">Chatbox Generator</h1>
+      <p>This website provides a simple way to generate code for <a href="https://github.com/gluon-framework/gluon">Gluon</a> JSON file.</p>
       <form>
          <!-- Add labels for the input fields -->
          <input type="text" id="text" size="50" value="" readonly="" style="display: none;">
@@ -98,5 +98,6 @@ Gluon.open('${url1}', {
       </form>
       <label for="display">JSON File code:</label><br>
       <div id="display" style="white-space:pre-wrap;"></div>
+      <p>Creator: <a href="https://twitter.com/camjampng">Camjampng</a>. Here is the <a href="https://github.com/CamjamPNG/Gluon-Maker">Source Code.</a></p>
    </body>
 </html>
