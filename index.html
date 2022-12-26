@@ -1,13 +1,11 @@
 <html>
    <head>
       <style>
-         /* Add some basic styling */
          body {
             font-family: sans-serif;
          }
 
          input[type="text"], input[type="url"] {
-            /* Add some padding and border to the input fields */
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 8px;
@@ -17,7 +15,6 @@
          }
 
          input[type="button"] {
-            /* Add some styling to the button */
             background-color: #4CAF50;
             color: white;
             padding: 8px 16px;
@@ -28,7 +25,6 @@
          }
 
          #display {
-            /* Add some styling to the display div */
             border: 1px solid #ccc;
             padding: 16px;
             margin-bottom: 16px;
@@ -44,35 +40,30 @@
   		 var oldname = document.getElementById("oldname").value;
   		 var newname = document.getElementById("newname").value;
   		 var text = `import * as Gluon from '@gluon-framework/gluon';
-
-Gluon.open('url1', {
+Gluon.open('${url1}', {
   onLoad: () => {
     setTimeout(() => {
-      document.title = 'newname';
+      document.title = '${newname}';
       Object.defineProperty(document, 'title', {
         get() {
           return this._title;
         },
-
         set(original) {
-          if (original === 'oldname') original = 'newname';
-
+          if (original === '${oldname}') original = '${newname}';
           // web style title -> desktop style title
-          this._title = original.replace('oldname | ', '');
-          if (this._title !== 'newname') this._title += ' - newname';
-
+          this._title = original.replace('${oldname} | ', '');
+          if (this._title !== '${newname}') this._title += ' - ${newname}';
           document.getElementsByTagName('title')[0].textContent = this._title; // actually set title
           return this._title;
         }
       });
-
       document.head.appendChild(document.createElement("style")).innerHTML = \`
 .socialLinks-3ywLUf + .info-3pQQBb {
   position: relative;
 }
 
 .socialLinks-3ywLUf + .info-3pQQBb::after {
-  content: 'newname 0.1.1 \\a Gluon \${Gluon.versions.gluon} \${Gluon.versions.builder !== 'nothing' ? \`(\${Gluon.versions.builder})\` : ''} \\a \${Gluon.versions.browserType[0].toUpperCase() + Gluon.versions.browserType.slice(1)} \${Gluon.versions.browser} (\${Gluon.versions.product}) \\a Node \${Gluon.versions.node}';
+  content: '${newname} 0.1.1 \\a Gluon \${Gluon.versions.gluon} \${Gluon.versions.builder !== 'nothing' ? \`(\${Gluon.versions.builder})\` : ''} \\a \${Gluon.versions.browserType[0].toUpperCase() + Gluon.versions.browserType.slice(1)} \${Gluon.versions.browser} (\${Gluon.versions.product}) \\a Node \${Gluon.versions.node}';
   white-space: pre-wrap;
   text-transform: none;
   color: var(--text-muted);
@@ -89,8 +80,7 @@ Gluon.open('url1', {
     }, 200);
   }
 });`;
-  		 var newtext = text.replace("url1",url1).replace("oldname",oldname).replace("newname",newname);
-  		 document.getElementById("display").innerHTML = newtext;
+  		 document.getElementById("display").innerHTML = text;
          }
       </script>
    </head>
@@ -98,52 +88,7 @@ Gluon.open('url1', {
       <h2>Chatbox</h2>
       <form>
          <!-- Add labels for the input fields -->
-         <input type="text" id="text" size="50" value="import * as Gluon from '@gluon-framework/gluon';
-
-Gluon.open('url1', {
-  onLoad: () => {
-    setTimeout(() => {
-      document.title = 'newname';
-      Object.defineProperty(document, 'title', {
-        get() {
-          return this._title;
-        },
-
-        set(original) {
-          if (original === 'oldname') original = 'newname';
-
-          // web style title -> desktop style title
-          this._title = original.replace('oldname | ', '');
-          if (this._title !== 'newname') this._title += ' - newname';
-
-          document.getElementsByTagName('title')[0].textContent = this._title; // actually set title
-          return this._title;
-        }
-      });
-
-      document.head.appendChild(document.createElement("style")).innerHTML = \`
-.socialLinks-3ywLUf + .info-3pQQBb {
-  position: relative;
-}
-
-.socialLinks-3ywLUf + .info-3pQQBb::after {
-  content: 'newname 0.1.1 \\a Gluon \${Gluon.versions.gluon} \${Gluon.versions.builder !== 'nothing' ? \`(\${Gluon.versions.builder})\` : ''} \\a \${Gluon.versions.browserType[0].toUpperCase() + Gluon.versions.browserType.slice(1)} \${Gluon.versions.browser} (\${Gluon.versions.product}) \\a Node \${Gluon.versions.node}';
-  white-space: pre-wrap;
-  text-transform: none;
-  color: var(--text-muted);
-  font-weight: 400;
-  font-family: var(--font-primary);
-  font-size: 12px;
-  line-height: 16px;
-  width: 100%;
-  padding: 8px 0;
-  margin: 8px 0;
-  display: inline-block;
-  border-top: 1px solid var(--background-modifier-accent);
-}\`;
-    }, 200);
-  }
-});" readonly="" style="display: none;">
+         <input type="text" id="text" size="50" value="" readonly="" style="display: none;">
          <label for="url1">URL1:</label><br>
          <input type="url" id="url1"><br><br>
          <input type="text" id="oldname" style="display: none;"><br><br>
