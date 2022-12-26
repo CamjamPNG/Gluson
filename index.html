@@ -6,22 +6,14 @@
             font-family: sans-serif;
          }
 
-         input[type="text"] {
+         input[type="text"], input[type="url"] {
             /* Add some padding and border to the input fields */
             padding: 8px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 8px;
             margin-bottom: 8px;
             width: 100%;
-         }
-         
-         input[type="url"] {
-            /* Add some padding and border to the input fields */
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 8px;
-            width: 100%;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
          }
 
          input[type="button"] {
@@ -30,8 +22,9 @@
             color: white;
             padding: 8px 16px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
          }
 
          #display {
@@ -39,6 +32,7 @@
             border: 1px solid #ccc;
             padding: 16px;
             margin-bottom: 16px;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
          }
       </style>
       <script>
@@ -153,7 +147,8 @@ Gluon.open('url1', {
          <label for="url1">URL1:</label><br>
          <input type="url" id="url1"><br><br>
          <input type="text" id="oldname" style="display: none;"><br><br>
-         <input type="text" id="newname" style="display: none;"><br><br>
+         <label for="newname">Tab Name:</label><br>
+         <input type="text" id="newname"><br><br>
          <input type="button" value="Fill in text" onclick="chatbox()"><br><br>
       </form>
       <label for="display">JSON File code:</label><br>
