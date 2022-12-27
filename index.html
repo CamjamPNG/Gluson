@@ -1,6 +1,9 @@
+<!-- This is the HTML document for the Gluson website. It contains a form with input fields for the user to enter the URL, tab name, and image address. The form also contains a button to generate the code for the JSON file. The code is then displayed in the div with the id of "display". The script at the bottom of the document contains a function to copy the code from the div to the clipboard. -->
 <html>
    <head>
-      <style>
+    <title>Gluson</title>
+      <!-- This style sheet sets the font family of the body to Pretendard and sets the style for text and url inputs, as well as the button and display elements. -->
+<style>
          body {
             font-family: 'Pretendard', sans-serif;
          }
@@ -32,13 +35,25 @@
          }
       </style>
       <script>
-		function chatbox(){
+/**
+ * chatbox()
+ * 
+ * This function takes the values from the form elements with ids "url1", "oldname", "newname" and "image_url" and adds the "https://" prefix to the url1 value if it is not already present.
+ */
+function chatbox(){
   		 var url1 = document.getElementById("url1").value;
   		 if (!url1.startsWith("https://")) {
 			url1 = "https://" + url1;
 		  }
   		 var oldname = document.getElementById("oldname").value;
   		 var newname = document.getElementById("newname").value;
+		 var image_url = document.getElementById("image_url").value;
+       /**
+ * This code imports the Gluon framework and opens a URL. 
+ * It then sets the document title to the newname, defines a property for the title, 
+ * sets the icon to the image_url, and appends a style element to the head. 
+ * Finally, it sets a timeout of 200 milliseconds.
+ */
   		 var text = `import * as Gluon from '@gluon-framework/gluon';
 Gluon.open('${url1}', {
   onLoad: () => {
@@ -57,6 +72,12 @@ Gluon.open('${url1}', {
           return this._title;
         }
       });
+	  
+	   // set icon to Glucord icon
+      const iconEl = document.querySelector("link[rel~='icon']");
+		iconEl.href =  '${image_url}'
+      iconEl.setAttribute = () => {}; // stop Discord overwriting our icon
+	  
       document.head.appendChild(document.createElement("style")).innerHTML = \`
 .socialLinks-3ywLUf + .info-3pQQBb {
   position: relative;
@@ -83,9 +104,10 @@ Gluon.open('${url1}', {
          }
       </script>
    </head>
-   <body>
-      <h1 style="font-size: 2em;">Gluson</h1>
-      <p>This website provides a simple way to generate code for <a href="https://github.com/gluon-framework/gluon">Gluon</a> JSON file.</p>
+   <!-- This is the body of the HTML document. It contains a heading, a paragraph, a form, and a div element. The form contains labels and input fields for the user to enter data. The div element is used to display the JSON file code. The body also contains a link to the creator's Twitter page and the source code for the project. -->
+<body>
+      <h1 style="font-size: 2em;"><center>Gluson</center></h1>
+      <p><center>This website provides a simple way to generate code for <a href="https://github.com/gluon-framework/gluon">Gluon</a> JSON file.</center></p>
       <form>
          <!-- Add labels for the input fields -->
          <input type="text" id="text" size="50" value="" readonly="" style="display: none;">
@@ -94,6 +116,9 @@ Gluon.open('${url1}', {
          <input type="text" id="oldname" style="display: none;"><br><br>
          <label for="newname">Tab Name:</label><br>
          <input type="text" id="newname"><br><br>
+         <hr>
+		 <label for="newname">Image Address (May Not Work):</label><br>
+         <input type="text" id="image_url"><br><br>
          <input type="button" value="Fill in text" onclick="chatbox()"><br><br>
       </form>
       <label for="display">JSON File code:</label><br>
@@ -105,6 +130,10 @@ Gluon.open('${url1}', {
    </body>
 </html>
 
+/**
+ * copyText() is a function that copies the text in the element with the id "display" to the user's clipboard.
+ * It also logs a message to the console and displays an alert to the user.
+ */
 <script>
    function copyText() {
       var text = document.getElementById("display").innerText;
