@@ -110,6 +110,7 @@ Gluon.open('${url1}', {
       var text = document.getElementById("display").innerText;
       navigator.clipboard.writeText(text).then(function() {
          console.log('Text copied to clipboard');
+	 alert("The code has been copied to your clipboard!");
       });
    }
 </script>
