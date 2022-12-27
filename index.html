@@ -98,6 +98,18 @@ Gluon.open('${url1}', {
       </form>
       <label for="display">JSON File code:</label><br>
       <div id="display" style="white-space:pre-wrap;"></div>
+      <form>
+      	<input type="button" value="Copy Text" onclick="copyText()"><br><br>
+      </form>
       <p>Creator: <a href="https://twitter.com/camjampng">Camjampng</a>. Here is the <a href="https://github.com/CamjamPNG/Gluson">Source Code.</a></p>
    </body>
 </html>
+
+<script>
+   function copyText() {
+      var text = document.getElementById("display").innerText;
+      navigator.clipboard.writeText(text).then(function() {
+         console.log('Text copied to clipboard');
+      });
+   }
+</script>
